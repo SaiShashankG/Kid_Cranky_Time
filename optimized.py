@@ -4,7 +4,7 @@ def first_ok(i,activities,cranky):
             return False
     return True
 
-def compatible(j,i,activities,cranky,nxt):
+def compatible(j,i,activities,nxt):
     if activities[j][1]>activities[i][0]:
         return False
     if nxt[j] is None or nxt[j]>=activities[i][0]:
@@ -22,12 +22,13 @@ def schedule_activities(activities,cranky):
         return 0
     
     activities=sorted(activities, key=lambda a: a[1])
+    cranky=sorted(cranky)
     n=len(activities)
 
     nxt=[]
     for j in range(n):
         first_after=None
-        for t in sorted(cranky):
+        for t in cranky:
             if t>activities[j][1]:
                 first_after=t
                 break
@@ -44,7 +45,7 @@ def schedule_activities(activities,cranky):
             best=INF
             
         for j in range(i):
-            if compatible(j,i,activities,cranky,nxt):
+            if compatible(j,i,activities,nxt):
                 best=min(best,f[j])
         f[i]=activities[i][2]+best
 
