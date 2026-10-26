@@ -21,8 +21,8 @@ Sort the activities by end time and solve with dynamic programming over chains o
 
 | Algorithm | Time | Space |
 |---|---|---|
-| Brute force (all subsets, correctness oracle) | O(2^n · n · (m + log n)) | O(n) |
-| Dynamic programming (`optimized.py`) | O(n² + nm + m log m) | O(n + m) |
+| Brute force (all subsets, correctness oracle) | $O(2^n · n · (m + log n))$ | $O(n)$ |
+| Dynamic programming (`optimized.py`) | $O(n² + nm + m log m)$ | $O(n + m)$ |
 
 Here `n` is the number of activities and `m` is the number of cranky times.
 
